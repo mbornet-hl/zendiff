@@ -1,0 +1,9 @@
+#
+#	@(#)	[Zen] bq_zenadmin	Version 1.1 du 22/09/27 - 
+#
+
+User_Alias ZA_ADM = zenadmin, mb, apache
+
+
+root ALL=(ALL)      ALL
+
