@@ -10,9 +10,12 @@ It can produce a list of differences between :
 - system configuration,
 - and many other types of objects.
 
+Its output is either in HTML/CSS or in ASCII (as a command line output).
+
+## Warning
 It is still in development and the source code is still being reworked.
 
-Usage :
+# Usage
 ```
 -M main
 --help                 | -u : display usage
