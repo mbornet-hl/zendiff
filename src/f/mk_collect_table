@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+#    Creation of the 'collects' table
+#    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#    @(#)  [Zen]  Version 1.4 of 22/09/27 - 
+#
+
+#    Read parameters file
+#    ~~~~~~~~~~~~~~~~~~~~
+. param_zenadmin
+
+
+echo "Creation of the 'collects' table ..."
+mysql -u root -p '' << EOF
+     use $DATABASE;
+
+     # Creation of the 'collects' table
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     create table collects (
+          id_server           integer,                      # server ID
+          id_timestamp        integer,                      # collection timestamp ID
+          id_module           integer,                      # module ID
+
+          end_collect         timestamp       DEFAULT 0,    # end of collection timestamp
+          duration_s          integer,                      # duration in seconds
+          duration_micro_s    integer,                      # duration in micro-seconds
+          nb_elts             integer,                      # number of collected elements
+          nb_infos            integer,                      # number of collected information elements
+          params              varchar(512),                 # parameters passed to the module
+          output              varchar(512),                 # output filename
+          manager_version     varchar(10),                  # ASCII version of the manager
+          agent_version       varchar(10),                  # ASCII version of the agent
+          manager_serial      integer,                      # serial number of the manager
+          agent_serial        integer,                      # serial number of the agent
+          label               varchar(64),                  # label associated to the collection
+
+          PRIMARY KEY(id_server, id_timestamp, id_module),
+          FOREIGN KEY(id_server)    REFERENCES servers(id),
+          FOREIGN KEY(id_timestamp) REFERENCES timestamps(id)
+     ) ENGINE InnoDB;
+     desc collects;
+
+     # Tables display
+     # ~~~~~~~~~~~~~~
+     show tables;
+     grant all privileges on zenadmin.* to zenadmin@localhost identified by 'za';
+     exit
+EOF
