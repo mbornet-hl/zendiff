@@ -316,3 +316,15 @@ It is still in development and the source code is still being reworked.
       --debug                | -D : agent debug
             --agent                | -a : agent debug
 ```
+
+# Donation
+--------
+If you want to help develop this software, please consider donating [here](https://paypal.me/MartialBornet).
+
+This software is only developed during my free time, and development would go much master if I had more free time ...  ;-)
+
+I have many ideas to enhance this product, but implementing ideas in C is not quick, and this tool needs to be implemented in C for efficiency.
+
+I would be very happy if it could help you.
+
+Thank you for reading.
