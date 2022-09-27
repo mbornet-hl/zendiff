@@ -10,6 +10,8 @@ It can produce a list of differences between :
 - system configuration,
 - and many other types of objects.
 
+It is still in development and the source code is still being reworked.
+
 Usage :
 ```
 -M main
