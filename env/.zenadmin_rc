@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+#	Zenadmin environment variables
+#	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#	@(#)	[Zen] aq_.zenadmin_rc	Version 1.7 du 23/09/02 - 
+#
+
+ZA_DEFAULT_ROOT='/opt/zenadmin'
+ZA_DEFAULT_VERSION='0.87'
+
+init_zen_env()
+{
+	if [ "$ZA_VERSION" = '' ]; then
+		export ZA_VERSION="$ZA_DEFAULT_VERSION"
+	fi
+
+	# Directories
+	# ~~~~~~~~~~~
+	export ZA_ROOT_DIR="$ZA_DEFAULT_ROOT"
+	export ZA_CURRENT_DIR="$ZA_ROOT_DIR/$ZA_VERSION"
+	export ZA_BIN_DIR="$ZA_CURRENT_DIR/bin"
+	export ZA_CAT_DIR="$ZA_CURRENT_DIR/catalogs"
+	export ZA_CONF_DIR="$ZA_CURRENT_DIR/conf"
+	export ZA_LOG_DIR="$ZA_CURRENT_DIR/log"
+	export ZA_REF_DIR="$ZA_CURRENT_DIR/references"
+	export ZA_SCRIPTS_DIR="$ZA_CURRENT_DIR/scripts"
+	export ZA_HOME_BIN_DIR="$HOME/za_bin"
+
+	# Configuration file
+	# ~~~~~~~~~~~~~~~~~~
+	export ZA_CONF="$ZA_CONF_DIR/zenadmin.conf"
+	export CONF_ZA="$ZA_CONF"
+
+	# Update PATH
+	# ~~~~~~~~~~~
+	case "$PATH" in
+		*/zenadmin/*)	export PATH=$(echo "$PATH" | sed 's|\(.*\):[^:]*zenadmin[^:]*:\(.*\)|\1:'"$ZA_BIN_DIR"':\2|')
+					;;
+
+		*)			export PATH="$PATH:$ZA_BIN_DIR"
+					;;
+	esac
+
+	case "$PATH" in
+		*/za_bin/*)	export PATH=$(echo "$PATH" | sed 's|\(.*\):[^:]*za_bin[^:]*:\(.*\)|\1:'"$ZA_HOME_BIN_DIR"':\2|')
+					;;
+
+		*)			export PATH="$PATH:$ZA_HOME_BIN_DIR"
+					;;
+	esac
+
+	# Binaries
+	# ~~~~~~~~
+	export ZA="$ZA_BIN_DIR/zenadmin"
+
+	# Logs files
+	# ~~~~~~~~~~
+	export ZA_MANAGER_LOG="$ZA_LOG_DIR/manager.log"
+	export ZA_USERS_LOG="$ZA_LOG_DIR/agent_users.log"
+	export ZA_FS_LOG="$ZA_LOG_DIR/agent_fs.log"
+	export ZA_RPM_LOG="$ZA_LOG_DIR/agent_rpm.log"
+	export ZA_SYS_LOG="$ZA_LOG_DIR/agent_syslog.log"
+	export ZA_DPKG_LOG="$ZA_LOG_DIR/agent_dpkg.log"
+	export ZA_SCCS_LOG="$ZA_LOG_DIR/agent_sccs.log"
+}
+
+init_zen_aliases()
+{
+	#	Aliases for Zenadmin
+	#	~~~~~~~~~~~~~~~~~~~~
+	alias O="cd $ZA_ROOT_DIR"
+	alias S="cd $ZA_SCRIPTS_DIR"
+	alias Z84='export ZA_VERSION=0.84; init_zen_env'
+	alias Z85='export ZA_VERSION=0.85; init_zen_env'
+	alias Z86='export ZA_VERSION=0.86; init_zen_env'
+	alias Z87='export ZA_VERSION=0.87; init_zen_env'
+	alias W='ZEN; cd $HOME/work/Zen/$ZA_VERSION; MIS_ZEN'
+	alias za_usage='./za -u | hl --za_usage | less -RX'
+}
+
+init_zen_env
+init_zen_aliases
