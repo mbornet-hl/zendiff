@@ -19,7 +19,7 @@
  *
  *   File         :     n_magic.h
  *
- *   @(#)  [Zen] n_magic.h Version 1.26 of 22/09/27 - 
+ *   @(#)  [Zen] n_magic.h Version 1.27 of 23/08/25 - 
  *
  * Sources from the original za command are available on :
  * https://github.com/mbornet-hl/zendiff
@@ -51,7 +51,7 @@
 
 /*   Magic numbers for structures
  *   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-#define   N_MAGIC_NULL                       0x00000000
+#define   N_MAGIC_NULL                       0xEAFC0000
 #define   N_MAGIC_k_tlf                      0xEAFC0001
 #define   N_MAGIC_r_desc_mem                 0xEAFC0002
 #define   N_MAGIC_c_elt_user                 0xEAFC0003
@@ -77,36 +77,38 @@
 #define   N_MAGIC_aj_ident_tree              0xEAFC0017
 #define   N_MAGIC_l_arg_fifo                 0xEAFC0018
 #define   N_MAGIC_c_elt_rpm                  0xEAFC0019
-#define   N_MAGIC_c_info_rpm                 0xEAFC0020
-#define   N_MAGIC_c_param_rpm                0xEAFC0021
-#define   N_MAGIC_t_keyw_node                0xEAFC0022
-#define   N_MAGIC_e_desc_option              0xEAFC0023
-#define   N_MAGIC_k_desc_info                0xEAFC0024
-#define   N_MAGIC_c_desc_date                0xEAFC0025
-#define   N_MAGIC_c_date_tree                0xEAFC0026
-#define   N_MAGIC_ab_desc_fifo               0xEAFC0027
-#define   N_MAGIC_ab_fifo                    0xEAFC0028
-#define   N_MAGIC_as_elt                     0xEAFC0029
-#define   N_MAGIC_c_elt                      0xEAFC002A
-#define   N_MAGIC_ab_elt                     0xEAFC002B
-#define   N_MAGIC_c_elt_fifo                 0xEAFC002C
-#define   N_MAGIC_c_desc_source              0xEAFC002D
-#define   N_MAGIC_c_param                    0xEAFC002E
-#define   N_MAGIC_aw_param                   0xEAFC002F
-#define   N_MAGIC_c_desc_display             0xEAFC0030
-#define   N_MAGIC_c_param_sccs               0xEAFC0031
-#define   N_MAGIC_c_elt_dupl                 0xEAFC0032
-#define   N_MAGIC_c_param_sysconf            0xEAFC0033
-#define   N_MAGIC_c_elt_sysconf              0xEAFC0034
-#define   N_MAGIC_c_info_sysconf             0xEAFC0035
-#define   N_MAGIC_c_desc_uint8               0xEAFC0036
-#define   N_MAGIC_c_uint8_tree               0xEAFC0037
-#define   N_MAGIC_c_desc_dsp_hdr             0xEAFC0038
-#define   N_MAGIC_bl_cfg_node                0xEAFC0039
-#define   N_MAGIC_c_opt_node                 0xEAFC003A
-#define   N_MAGIC_c_param_dpkg               0xEAFC003B
-#define   N_MAGIC_c_elt_dpkg                 0xEAFC003C
-#define   N_MAGIC_c_info_dpkg                0xEAFC003D
+#define   N_MAGIC_c_info_rpm                 0xEAFC001A
+#define   N_MAGIC_c_param_rpm                0xEAFC001B
+#define   N_MAGIC_t_keyw_node                0xEAFC001C
+#define   N_MAGIC_e_desc_option              0xEAFC001D
+#define   N_MAGIC_k_desc_info                0xEAFC001E
+#define   N_MAGIC_c_desc_date                0xEAFC001F
+#define   N_MAGIC_c_date_tree                0xEAFC0020
+#define   N_MAGIC_ab_desc_fifo               0xEAFC0021
+#define   N_MAGIC_ab_fifo                    0xEAFC0022
+#define   N_MAGIC_as_elt                     0xEAFC0023
+#define   N_MAGIC_c_elt                      0xEAFC0024
+#define   N_MAGIC_ab_elt                     0xEAFC0025
+#define   N_MAGIC_c_elt_fifo                 0xEAFC0026
+#define   N_MAGIC_c_desc_source              0xEAFC0027
+#define   N_MAGIC_c_param                    0xEAFC0028
+#define   N_MAGIC_aw_param                   0xEAFC0029
+#define   N_MAGIC_c_desc_display             0xEAFC002A
+#define   N_MAGIC_c_param_sccs               0xEAFC002B
+#define   N_MAGIC_c_elt_dupl                 0xEAFC002C
+#define   N_MAGIC_c_param_sysconf            0xEAFC002D
+#define   N_MAGIC_c_elt_sysconf              0xEAFC002E
+#define   N_MAGIC_c_info_sysconf             0xEAFC002F
+#define   N_MAGIC_c_desc_uint8               0xEAFC0030
+#define   N_MAGIC_c_uint8_tree               0xEAFC0031
+#define   N_MAGIC_c_desc_dsp_hdr             0xEAFC0032
+#define   N_MAGIC_bl_cfg_node                0xEAFC0033
+#define   N_MAGIC_c_opt_node                 0xEAFC0034
+#define   N_MAGIC_c_param_dpkg               0xEAFC0035
+#define   N_MAGIC_c_elt_dpkg                 0xEAFC0036
+#define   N_MAGIC_c_info_dpkg                0xEAFC0037
+#define   N_MAGIC_c_elt_sccs                 0xEAFC0038
+#define   N_MAGIC_c_info_sccs                0xEAFC0039
 
 
 /*   Magic number classes for messages
