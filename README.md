@@ -8,12 +8,47 @@ It can produce a list of differences between :
 - Red Hat packages,
 - Debian packages,
 - system configuration,
+- SCCS archives,
 - and many other types of objects.
 
+It's written in C, LEX and YACC, and is currently made of more that 60,000 lines of code.
 Its output is either in HTML/CSS or in ASCII (as a command line output).
+
+You can compare objects on a same machine or between several machines, but since metadata
+can be stored in a database, you also can compare a current state with one or different
+previous states.
 
 ## Warning
 It is still in development and the source code is still being reworked.
+It works for me and I've been using it since 2010 to find inconsistencies between
+different machines or evolution of elements through time, but it's not industrialized yet,
+so not ready for everybody to use.
+The modules I'm currently working on are :
+- Module FS : adding regex to filter the elements to be compared
+- Module FS : adding different colorizations for specific elements (directories, root, ...)
+- Module SCCS : currently being developped
+- Module SSHKEYS : design (check consistency and locate security flaws)
+
+Currently usable modules are :
+- FS
+- USERS
+- RPM
+- DPKG
+- SYSCONF
+
+Future modules are :
+- SCCS (available soon)
+- sshkeys
+- network
+- security
+- mail
+- inventory
+- backups
+- performance
+
+but that's a lot for one only person : I'm the designer and sole developer ...
+
+I'll put some screenshots in the **results** directory to show you possible outputs.
 
 # Usage
 ```
