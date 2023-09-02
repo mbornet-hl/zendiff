@@ -1,5 +1,5 @@
 /* ============================================================================
- * Copyright (C) 2010-2022, Martial Bornet
+ * Copyright (C) 2010-2023, Martial Bornet
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  *
  *   File         :     c_msg.h
  *
- *   @(#)  [Zen] c_msg.h Version 1.49 of 22/09/27 - 
+ *	@(#)	[Zen] c_msg.h	Version 1.51 of 23/09/02 - 
  *
  * Sources from the original za command are available on :
  * https://github.com/mbornet-hl/zendiff
@@ -534,6 +534,8 @@ extern char                        *c_msg_fs_00108[];
 extern char                        *c_msg_fs_00109[];
 extern char                        *c_msg_fs_00110[];
 extern char                        *c_msg_fs_00111[];
+extern char                        *c_msg_fs_00112[];
+extern char                        *c_msg_fs_00113[];
 
 extern char                        *c_htm_fs_00000[];
 extern char                        *c_htm_fs_00001[];
@@ -647,6 +649,8 @@ extern char                        *c_htm_fs_00108[];
 extern char                        *c_htm_fs_00109[];
 extern char                        *c_htm_fs_00110[];
 extern char                        *c_htm_fs_00111[];
+extern char                        *c_htm_fs_00112[];
+extern char                        *c_htm_fs_00113[];
 /* }}} */
 /*   Module RPM {{{
  *   ~~~~~~~~~~ */
@@ -741,26 +745,6 @@ extern char                        *c_htm_rpm_00042[];
 extern char                        *c_htm_rpm_00043[];
 extern char                        *c_htm_rpm_00044[];
 /* }}} */
-/*   Module SCCS {{{
- *   ~~~~~~~~~~~ */
-extern char                        *c_msg_sccs_00001[];
-extern char                        *c_msg_sccs_00002[];
-extern char                        *c_msg_sccs_00003[];
-extern char                        *c_msg_sccs_00004[];
-extern char                        *c_msg_sccs_00005[];
-extern char                        *c_msg_sccs_00006[];
-extern char                        *c_msg_sccs_00007[];
-extern char                        *c_msg_sccs_00008[];
-
-extern char                        *c_htm_sccs_00001[];
-extern char                        *c_htm_sccs_00002[];
-extern char                        *c_htm_sccs_00003[];
-extern char                        *c_htm_sccs_00004[];
-extern char                        *c_htm_sccs_00005[];
-extern char                        *c_htm_sccs_00006[];
-extern char                        *c_htm_sccs_00007[];
-extern char                        *c_htm_sccs_00008[];
-/* }}} */
 /*   Module SYSCONF {{{
  *   ~~~~~~~~~~~~~~ */
 extern char                        *c_msg_sysconf_00001[];
@@ -816,6 +800,36 @@ extern char                        *c_htm_dpkg_00007[];
 extern char                        *c_htm_dpkg_00008[];
 extern char                        *c_htm_dpkg_00009[];
 extern char                        *c_htm_dpkg_00010[];
+/* }}} */
+/*   Module SCCS {{{
+ *   ~~~~~~~~~~~ */
+extern char                        *c_msg_sccs_00001[];
+extern char                        *c_msg_sccs_00002[];
+extern char                        *c_msg_sccs_00003[];
+extern char                        *c_msg_sccs_00004[];
+extern char                        *c_msg_sccs_00005[];
+extern char                        *c_msg_sccs_00006[];
+extern char                        *c_msg_sccs_00007[];
+extern char                        *c_msg_sccs_00008[];
+extern char                        *c_msg_sccs_00009[];
+extern char                        *c_msg_sccs_00010[];
+extern char                        *c_msg_sccs_00011[];
+extern char                        *c_msg_sccs_00012[];
+extern char                        *c_msg_sccs_00013[];
+
+extern char                        *c_htm_sccs_00001[];
+extern char                        *c_htm_sccs_00002[];
+extern char                        *c_htm_sccs_00003[];
+extern char                        *c_htm_sccs_00004[];
+extern char                        *c_htm_sccs_00005[];
+extern char                        *c_htm_sccs_00006[];
+extern char                        *c_htm_sccs_00007[];
+extern char                        *c_htm_sccs_00008[];
+extern char                        *c_htm_sccs_00009[];
+extern char                        *c_htm_sccs_00010[];
+extern char                        *c_htm_sccs_00011[];
+extern char                        *c_htm_sccs_00012[];
+extern char                        *c_htm_sccs_00013[];
 /* }}} */
 
 /*   Message IDs                   {{{
@@ -1134,6 +1148,8 @@ extern char                        *c_htm_dpkg_00010[];
 #define   C_MSG_FS_00109           C_MSG_FS(0x006D)
 #define   C_MSG_FS_00110           C_MSG_FS(0x006E)
 #define   C_MSG_FS_00111           C_MSG_FS(0x006F)
+#define   C_MSG_FS_00112           C_MSG_FS(0x0070)
+#define   C_MSG_FS_00113           C_MSG_FS(0x0071)
 /* }}} */
 /* C_MSG_RPM                       {{{ */
 #define   C_MSG_RPM_00000          C_MSG_RPM(0x0000)
@@ -1182,16 +1198,6 @@ extern char                        *c_htm_dpkg_00010[];
 #define   C_MSG_RPM_00043          C_MSG_RPM(0x002B)
 #define   C_MSG_RPM_00044          C_MSG_RPM(0x002C)
 /* }}} */
-/* C_MSG_SCCS                      {{{ */
-#define   C_MSG_SCCS_00001         C_MSG_SCCS(0x0001)
-#define   C_MSG_SCCS_00002         C_MSG_SCCS(0x0002)
-#define   C_MSG_SCCS_00003         C_MSG_SCCS(0x0003)
-#define   C_MSG_SCCS_00004         C_MSG_SCCS(0x0004)
-#define   C_MSG_SCCS_00005         C_MSG_SCCS(0x0005)
-#define   C_MSG_SCCS_00006         C_MSG_SCCS(0x0006)
-#define   C_MSG_SCCS_00007         C_MSG_SCCS(0x0007)
-#define   C_MSG_SCCS_00008         C_MSG_SCCS(0x0008)
-/* }}} */
 /* C_MSG_SYSCONF                   {{{ */
 #define   C_MSG_SYSCONF_00000      C_MSG_SYSCONF(0x0000)
 #define   C_MSG_SYSCONF_00001      C_MSG_SYSCONF(0x0001)
@@ -1224,6 +1230,21 @@ extern char                        *c_htm_dpkg_00010[];
 #define   C_MSG_DPKG_00011         C_MSG_DPKG(0x000b)
 #define   C_MSG_DPKG_00012         C_MSG_DPKG(0x000c)
 #define   C_MSG_DPKG_00013         C_MSG_DPKG(0x000d)
+/* }}} */
+/* C_MSG_SCCS                      {{{ */
+#define   C_MSG_SCCS_00001         C_MSG_SCCS(0x0001)
+#define   C_MSG_SCCS_00002         C_MSG_SCCS(0x0002)
+#define   C_MSG_SCCS_00003         C_MSG_SCCS(0x0003)
+#define   C_MSG_SCCS_00004         C_MSG_SCCS(0x0004)
+#define   C_MSG_SCCS_00005         C_MSG_SCCS(0x0005)
+#define   C_MSG_SCCS_00006         C_MSG_SCCS(0x0006)
+#define   C_MSG_SCCS_00007         C_MSG_SCCS(0x0007)
+#define   C_MSG_SCCS_00008         C_MSG_SCCS(0x0008)
+#define   C_MSG_SCCS_00009         C_MSG_SCCS(0x0009)
+#define   C_MSG_SCCS_00010         C_MSG_SCCS(0x0010)
+#define   C_MSG_SCCS_00011         C_MSG_SCCS(0x0011)
+#define   C_MSG_SCCS_00012         C_MSG_SCCS(0x0012)
+#define   C_MSG_SCCS_00013         C_MSG_SCCS(0x0013)
 /* }}} */
 
 #endif    /* C_MSG_H */
