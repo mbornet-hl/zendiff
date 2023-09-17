@@ -1,0 +1,15 @@
+#
+#	Module  U
+#	=========
+#
+#	Version 1.10 du 23/09/17.	Zen
+#
+u_cpri.h       : 1.7          :
+u_cpub.h       : 1.5          :
+u_epri.h       : 1.4          :
+u_epub.h       : 1.4          :
+u_gpri.c       : 1.5          :
+u_gpub.c       : 1.3          :
+u_lex.l        : 1.8          :
+u_yacc.y       : 1.10         :
+u_za_sccs.c    : 1.10         :
