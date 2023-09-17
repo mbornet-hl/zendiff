@@ -381,7 +381,6 @@ I'll put some screenshots in the **results** directory to show you possible outp
       --year                 |    : delta creation year
       --month                |    : delta creation month
       --day                  |    : delta creation day
-      --debug                | -D : UNKNOWN MESSAGE : 0x11060000
 ```
 
 # Donation
