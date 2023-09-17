@@ -35,9 +35,9 @@ Currently usable modules are :
 - RPM
 - DPKG
 - SYSCONF
+- SCCS
 
 Future modules are :
-- SCCS (available soon)
 - sshkeys
 - network
 - security
