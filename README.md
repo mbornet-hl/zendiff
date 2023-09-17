@@ -72,6 +72,7 @@ I'll put some screenshots in the **results** directory to show you possible outp
       --pathnames            | -P : list pathnames
       --RPM                  | -R : list RPM
       --dpkg                 | -D : list Debian packages
+      --sccs                 | -S : list SCCS archives
 --log                  | -l : log options
       --hires-ts             | -T : display high resolution timestamps
       --ts                   | -t : display timestapms
@@ -166,8 +167,8 @@ I'll put some screenshots in the **results** directory to show you possible outp
       --title                |    : results page title
       --label                |    : associate a name to a collect
       --base                 |    : quick scan
-      --RE-ignore            |    : *** NOT INITIALIZED ***
-      --RE-only              |    : *** NOT INITIALIZED ***
+      --RE-ignore            |    : ignore files matching the regex
+      --RE-only              |    : select files matching the regex
       --digits-separator     | -3 : 3 digits grouping
       --no-implicit-display  |    : no implicit display of informations
       --delta                |    : display numeric deltas
@@ -350,6 +351,37 @@ I'll put some screenshots in the **results** directory to show you possible outp
       --descr                | -d : description
       --debug                | -D : agent debug
             --agent                | -a : agent debug
+--module              -M sccs
+      --help                 |    : display usage
+      --all-elts             | -E : display all elements
+      --all-infos            | -I : display all informations
+      --config               | -C : configuration
+      --reference            | -R : reference (add)
+      --srvgroup             |    : servers group(s) name(s)
+      --store                |    : store collected informations in a database
+      --no-disp              |    : no display
+      --html-out             | -o : HTML output file
+      --title                |    : results page title
+      --label                |    : associate a name to a collect
+      --lex                  | -L : trace lex
+      --yacc                 | -Y : trace yacc
+      --xdev                 | -x : don't descend directories on other filesystem
+      --level                |    : SCCS archive
+      --size                 | -s : delta size
+      --md5                  | -M : MD5 sum
+      --sha256               | -S : SHA256 sum
+      --archive              | -a : SCCS archive
+      --last-version         | -l : last version
+      --author               | -A : author
+      --date                 | -d : delta creation date
+      --time                 | -t : delta creation time
+      --module-type          | -m : module type
+      --var-Q                | -Q : Q variable
+      --comment              | -c : comment
+      --year                 |    : delta creation year
+      --month                |    : delta creation month
+      --day                  |    : delta creation day
+      --debug                | -D : UNKNOWN MESSAGE : 0x11060000
 ```
 
 # Donation
