@@ -1,0 +1,11 @@
+#
+#	Module  X
+#	=========
+#
+#	Version 1.9 du 23/09/18.	Zen
+#
+x_agent.c      : 1.7          :
+x_cpub.h       : 1.6          :
+x_epub.h       : 1.4          :
+x_gpub.c       : 1.6          :
+x_main.c       : 1.2          :
