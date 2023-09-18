@@ -1,6 +1,10 @@
 # zendiff
 Tool that displays differences between objects.
 
+It may be used to find inconsistencies between configurations or between servers, and to
+detect changes between states, for example before and after a package installation,
+before and after a program execution, or to detect files corruption or meta-data modifications.
+
 This tool, in its distributed version, has been created in 2009.
 It can produce a list of differences between :
 - filesystems,
