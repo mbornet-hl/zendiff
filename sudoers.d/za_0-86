@@ -1,14 +1,5 @@
-#
-#	@(#)	[Zen] bq_za_0-86	Version 1.1 du 22/09/27 - 
-#
-
-root ALL=(ALL)      ALL
 
 ## ZenAdmin commands
-Cmnd_Alias ZA_CMDS_0_86 =     /opt/zenadmin/0.86/bin/zenagent_users,       \
-                              /opt/zenadmin/0.86/bin/zenagent_fs,          \
-                              /opt/zenadmin/0.86/bin/zenagent_rpm,         \
-                              /opt/zenadmin/0.86/bin/zenagent_dpkg,        \
-                              /opt/zenadmin/0.86/bin/zenagent_sysconf
+Cmnd_Alias ZA_CMDS_0_86 = /opt/zenadmin/0.86/bin/zenagent_users, /opt/zenadmin/0.86/bin/zenagent_fs, /opt/zenadmin/0.86/bin/zenagent_rpm, /opt/zenadmin/0.86/bin/zenagent_dpkg, /opt/zenadmin/0.86/bin/zenagent_sysconf, /opt/zenadmin/0.86.final/bin/zenagent_users, /opt/zenadmin/0.86.final/bin/zenagent_fs, /opt/zenadmin/0.86.final/bin/zenagent_rpm, /opt/zenadmin/0.86.final/bin/zenagent_dpkg, /opt/zenadmin/0.86.final/bin/zenagent_sysconf
 
 ZA_ADM  ALL=     NOPASSWD:ZA_CMDS_0_86

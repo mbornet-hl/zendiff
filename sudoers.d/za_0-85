@@ -1,0 +1,5 @@
+
+## ZenAdmin commands
+Cmnd_Alias ZA_CMDS_0_85 = /opt/zenadmin/0.85/bin/zenagent_users, /opt/zenadmin/0.85/bin/zenagent_fs, /opt/zenadmin/0.85/bin/zenagent_rpm, /opt/zenadmin/0.85/bin/zenagent_dpkg, /opt/zenadmin/0.85/bin/zenagent_sysconf, /opt/zenadmin/0.85.final/bin/zenagent_users, /opt/zenadmin/0.85.final/bin/zenagent_fs, /opt/zenadmin/0.85.final/bin/zenagent_rpm, /opt/zenadmin/0.85.final/bin/zenagent_dpkg
+
+ZA_ADM  ALL=     NOPASSWD:ZA_CMDS_0_85
