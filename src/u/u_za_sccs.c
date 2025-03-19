@@ -19,7 +19,7 @@
  *
  *   File         :     u_za_sccs.c
  *
- *   @(#)  [Zen] u_za_sccs.c Version 1.10 of 23/09/17 - 
+ *   @(#)  [Zen] u_za_sccs.c Version 1.13 of 25/01/09 - 
  *
  * Sources from the original za command are available on :
  * https://github.com/mbornet-hl/zendiff
@@ -143,30 +143,18 @@ void u_disp_sccs(struct u_sccs *sccs)
 ******************************************************************************/
 void u_free_sccs(struct u_sccs *sccs)
 {
-X
      U_COND_FREE(sccs->archive);
-X
      U_COND_FREE(sccs->last_vers);
-X
      U_COND_FREE(sccs->creation_date);
-X
      U_COND_FREE(sccs->creation_time);
-X
      U_COND_FREE(sccs->author);
-X
      U_COND_FREE(sccs->md5);
-X
      U_COND_FREE(sccs->sha256);
-X
      U_COND_FREE(sccs->comment);
-X
      U_COND_FREE(sccs->module_type);
-X
      U_COND_FREE(sccs->var_Q);
-X
 
      u_init_sccs(sccs);
-X
 }
 
 /* u_free_sccs() }}} */
@@ -197,7 +185,6 @@ char *u_gen_prs_desc(struct u_prs_kw_desc *u_desc_array)
      struct u_prs_kw_desc          *_p;
      char                           _prs_desc[512], _tmp_desc[64];
 
-X
      _prs_desc[0]                  = 0;
      strcpy(_prs_desc, "-d");
 
@@ -215,7 +202,6 @@ X
           }
      }
 
-X
      return strdup(_prs_desc);
 }
 
@@ -283,7 +269,6 @@ ah_disp_exec_args(_get_pathname, _argp);
           exit(M_ERR_PIPE);
      }
 
-X
      switch (fork()) {
 
      case -1:
@@ -294,7 +279,6 @@ X
      case  0:
           /* Processus fils
              ~~~~~~~~~~~~~~ */
-X
           close(1);
           dup(_fd[1]);
           close(_fd[1]);
@@ -309,7 +293,6 @@ X
      default:
           /* Processus pere
              ~~~~~~~~~~~~~~ */
-X
           close(_fd[1]);
 
           if ((_pipe_r = fdopen(_fd[0], "r")) == 0) {
@@ -317,7 +300,6 @@ X
           }
           break;
      }
-X
 
      /* Compute checksums
         ~~~~~~~~~~~~~~~~~ */
@@ -335,9 +317,7 @@ AH_CTX_PRT(0, AH_TRACE, "_c = '%c'\n", _c);
 
      /* Analyse du resultat de la commande "get"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-X
      wait(&_status);
-X
 
      if (WIFEXITED(_status)) {
           AH_CTX_PRT(0, AH_TRACE, "Normal exit code = %d\n", WEXITSTATUS(_status));
@@ -365,7 +345,6 @@ void u_get_delta_info(char *archive_path)
      int                            _status;
      char                          *_prs_pathname, *_opts_string;
 
-X
      _prs_pathname                 = U_PATHNAME_PRS;
      _opts_string                  = u_prs_opt;
 
@@ -424,9 +403,7 @@ fprintf(stderr, "%s '%s' %s\n", U_BASENAME_PRS, _opts_string, archive_path);
 
      /* Analyse du resultat de la commande "prs"
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-X
      wait(&_status);
-X
 
      if (WIFEXITED(_status)) {
           AH_CTX_PRT(0, AH_TRACE, "Normal exit code = %d\n", WEXITSTATUS(_status));
@@ -437,7 +414,6 @@ X
                AH_CTX_PRT(0, AH_TRACE, "Core dumped\n");
           }
      }
-X
 }
 
 /* u_get_delta_info() }}} */
@@ -455,7 +431,6 @@ int u_send_infos(char *archive_path, struct h_entry *entry, void *ctx)
      struct e_data_sccs             _data_sccs;
      struct ai_chksums              _chksums;
 
-X
      _ctx                          = (struct u_ctx *) ctx;
      N_CHECK(_ctx->magic, N_MAGIC_u_ctx);
 
@@ -522,21 +497,22 @@ X
                   ~~~~~~~~~~~~~~~~~~~~ */
                u_init_sccs(&u_info);
 
-               AH_DEBUG(1, 0, AH_DBG_G, "PARAM ID          = [%d]\n",   _data_sccs.param_ID);
-               AH_DEBUG(1, 0, AH_DBG_G, "ARCHIVE NAME      = [%s]\n",   _data_sccs.sccs.archive);
-               AH_DEBUG(1, 0, AH_DBG_G, "LAST VERSION      = [%s]\n",   _data_sccs.sccs.last_vers);
-               AH_DEBUG(1, 0, AH_DBG_G, "AUTHOR            = [%s]\n",   _data_sccs.sccs.author);
-               AH_DEBUG(1, 0, AH_DBG_G, "CREATION DATE     = [%s]\n",   _data_sccs.sccs.creation_date);
-               AH_DEBUG(1, 0, AH_DBG_G, "CREATION TIME     = [%s]\n",   _data_sccs.sccs.creation_time);
-               AH_DEBUG(1, 0, AH_DBG_G, "DELTA YEAR        = [%s]\n",   _data_sccs.sccs.D_year);
-               AH_DEBUG(1, 0, AH_DBG_G, "DELTA MONTH       = [%s]\n",   _data_sccs.sccs.D_month);
-               AH_DEBUG(1, 0, AH_DBG_G, "DELTA DAY         = [%s]\n",   _data_sccs.sccs.D_day);
-               AH_DEBUG(1, 0, AH_DBG_G, "MODULE TYPE       = [%s]\n",   _data_sccs.sccs.module_type);
-               AH_DEBUG(1, 0, AH_DBG_G, "VAR Q             = [%s]\n",   _data_sccs.sccs.var_Q);
-               AH_DEBUG(1, 0, AH_DBG_G, "COMMENT           = [%s]\n",   _data_sccs.sccs.comment);
-               AH_DEBUG(1, 0, AH_DBG_G, "SIZE              = [%llu]\n", _data_sccs.sccs.size);
-               AH_DEBUG(1, 0, AH_DBG_G, "MD5SUM            = [%s]\n",   _data_sccs.sccs.md5);
-               AH_DEBUG(1, 0, AH_DBG_G, "SHA256            = [%s]\n",   _data_sccs.sccs.sha256);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "PARAM ID          = [%d]\n",   _data_sccs.param_ID);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "RELATIVE PATH     = [%s]\n",   _data_sccs.relative_path);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "ARCHIVE NAME      = [%s]\n",   _data_sccs.sccs.archive);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "LAST VERSION      = [%s]\n",   _data_sccs.sccs.last_vers);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "AUTHOR            = [%s]\n",   _data_sccs.sccs.author);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "CREATION DATE     = [%s]\n",   _data_sccs.sccs.creation_date);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "CREATION TIME     = [%s]\n",   _data_sccs.sccs.creation_time);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "DELTA YEAR        = [%s]\n",   _data_sccs.sccs.D_year);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "DELTA MONTH       = [%s]\n",   _data_sccs.sccs.D_month);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "DELTA DAY         = [%s]\n",   _data_sccs.sccs.D_day);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "MODULE TYPE       = [%s]\n",   _data_sccs.sccs.module_type);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "VAR Q             = [%s]\n",   _data_sccs.sccs.var_Q);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "COMMENT           = [%s]\n",   _data_sccs.sccs.comment);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "SIZE              = [%llu]\n", _data_sccs.sccs.size);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "MD5SUM            = [%s]\n",   _data_sccs.sccs.md5);
+               AH_DEBUG(u_debug, 0, AH_DBG_G, "SHA256            = [%s]\n",   _data_sccs.sccs.sha256);
 
                /* Envoi selon la specification des descripteurs
                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -550,7 +526,6 @@ X
           fprintf(stderr, "%s() : [%s] not a regular file => skipped\n", __func__, entry->name);
      }
 
-X
      return H_RET_OK;
 }
 
@@ -619,7 +594,7 @@ int u_agent(int argc, char *argv[])
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
      ah_line(ah_ctx.fp_log, '=', X_COL, TRUE);
      AH_CTX_PRT(0, AH_TRACE, "Debut d'execution de l'agent\n");
-     AH_CTX_PRT(0, AH_TRACE, "ZA SCCS : version %s du %s (serial = %d)\n", "1.10", "23/09/17", SERIAL);
+     AH_CTX_PRT(0, AH_TRACE, "ZA SCCS : version %s du %s (serial = %d)\n", "1.13", "25/01/09", SERIAL);
 
      _catalog_stype                = ax_path_catalog(AX_CATALOG_STYPE);
      k_init(u_fp_log, _catalog_stype);
@@ -684,8 +659,8 @@ int u_agent(int argc, char *argv[])
       * nom du module, version, et date de versionnement
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
      _module.name             = E_LBL_SCCS;
-     _module.version          = "1.10";
-     _module.date             = "23/09/17";
+     _module.version          = "1.13";
+     _module.date             = "25/01/09";
      _module.serial           = SERIAL;
      _module.protocol_serial  = AR_PROTOCOL_SERIAL;
      k_send_infos(&_ctx.tlv_ctx, x_module, (char **) &_module);
@@ -701,24 +676,20 @@ int u_agent(int argc, char *argv[])
      /* Boucle de lecture des options en provenance du manager
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
      for (_eor = FALSE; _eor == FALSE; ) {
-          if ((_retcode = k_read_tlfv(&_ctx.tlv_ctx, &_type, &_lg,
-                                      &_ctx.tlv_ctx.flags, (char **) &_value)) != M_RET_OK) {
-               AH_CTX_PRT(0, AH_ERR | AH_DSP_WHERE, "reau_tlfv error : retcode = %d %s\n",
+          if ((_retcode = k_read_tlfv(&_ctx.tlv_ctx, &_type, &_lg, &_flags, (char **) &_value)) != M_RET_OK) {
+               AH_CTX_PRT(0, AH_ERR | AH_DSP_WHERE, "read_tlfv error : retcode = %d %s\n",
                                                                                 _retcode, strerror(errno));
                exit(M_ERR_READ);
           }
 
           if (_type == E_EOR) {
-X
                _eor                = TRUE;
                break;
           }
           if (_type == E_EOD) {
-X
                break;
           }
 
-X
 
           switch (B_VAR_TYPE(_type)) {
 
@@ -788,28 +759,29 @@ X
                _value              = 0;
           }
 
-
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_all_infos    = 0x%08X\n", e_sccs_all_infos);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_all_elts     = 0x%08X\n", e_sccs_all_elts);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_disp_lex     = 0x%08X\n", e_sccs_disp_lex);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_disp_yacc    = 0x%08X\n", e_sccs_disp_yacc);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_xdev         = 0x%08X\n", e_sccs_xdev);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_level        = 0x%08X\n", e_sccs_level);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_size         = 0x%08X\n", e_sccs_size);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_timestamp    = 0x%08X\n", e_sccs_timestamp);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_md5sum       = 0x%08X\n", e_sccs_md5sum);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_sha256sum    = 0x%08X\n", e_sccs_sha256sum);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_archive      = 0x%08X\n", e_sccs_archive);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_last_version = 0x%08X\n", e_sccs_last_version);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_author       = 0x%08X\n", e_sccs_author);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_creat_date   = 0x%08X\n", e_sccs_creat_date);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_creat_time   = 0x%08X\n", e_sccs_creat_time);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_D_year       = 0x%08X\n", e_sccs_D_year);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_D_month      = 0x%08X\n", e_sccs_D_month);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_D_day        = 0x%08X\n", e_sccs_D_day);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_module_type  = 0x%08X\n", e_sccs_module_type);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_var_Q        = 0x%08X\n", e_sccs_var_Q);
-          AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_comment      = 0x%08X\n", e_sccs_comment);
+		if (u_debug) {
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_all_infos    = 0x%08X\n", e_sccs_all_infos);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_all_elts     = 0x%08X\n", e_sccs_all_elts);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_disp_lex     = 0x%08X\n", e_sccs_disp_lex);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_disp_yacc    = 0x%08X\n", e_sccs_disp_yacc);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_xdev         = 0x%08X\n", e_sccs_xdev);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_level        = 0x%08X\n", e_sccs_level);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_size         = 0x%08X\n", e_sccs_size);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_timestamp    = 0x%08X\n", e_sccs_timestamp);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_md5sum       = 0x%08X\n", e_sccs_md5sum);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_sha256sum    = 0x%08X\n", e_sccs_sha256sum);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_archive      = 0x%08X\n", e_sccs_archive);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_last_version = 0x%08X\n", e_sccs_last_version);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_author       = 0x%08X\n", e_sccs_author);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_creat_date   = 0x%08X\n", e_sccs_creat_date);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_creat_time   = 0x%08X\n", e_sccs_creat_time);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_D_year       = 0x%08X\n", e_sccs_D_year);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_D_month      = 0x%08X\n", e_sccs_D_month);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_D_day        = 0x%08X\n", e_sccs_D_day);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_module_type  = 0x%08X\n", e_sccs_module_type);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_var_Q        = 0x%08X\n", e_sccs_var_Q);
+			AH_CTX_PRT(0, AH_WARN | AH_DSP_WHERE, "e_sccs_comment      = 0x%08X\n", e_sccs_comment);
+		}
      }
 
      /* Initialisation des flags de trace de l'analyseur (lexical / grammatical)
