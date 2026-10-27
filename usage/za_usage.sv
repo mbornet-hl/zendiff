@@ -1,0 +1,345 @@
+Programme principal :
+-M main
+--help                 | -u : visa användning                                            
+--version              | -V : visa version                                                
+--verbose              | -v : utförligt läge                                            
+--no-log               | -x : generera inga loggar                                        
+--lang                 | -_ : språk                                                      
+--config               | -C : konfiguration                                               
+--list-conf            | -c : visa konfigurationer                                        
+--list-groups          | -G : visa definierade grupper                                    
+--list-group           | -g : visa servrar i en grupp                                     
+--db-host              | -h : server som är värd för databasen                         
+--db-name              | -n : databasnamn                                                 
+--db-list              | -d : visa databastabeller                                        
+      --collects             | -C : visa insamlingslistan                                       
+      --TS                   | -T : lista tidsstämplar                                         
+      --servers              | -S : lista servrar                                               
+      --users                | -U : lista användare                                            
+      --pathnames            | -P : lista sökvägar                                            
+      --RPM                  | -R : lista RPM                                                   
+      --dpkg                 | -D : lista Debian-paket                                          
+      --sccs                 | -s : lista SCCS-arkiv                                            
+--log-config           | -l : loggkonfiguration                                           
+      --hires-ts             | -T : visa tidsstämplar med hög upplösning                     
+      --ts                   | -t : visa tidsstämplar                                          
+      --delta-t              | -d : visa varaktigheter (delta T)                                
+      --duration             | -D : visa tider                                                  
+      --where                | -w : visa meddelandekälla                                       
+      --origin-full          | -f : visa programmets fullständiga sökväg                     
+      --origin-base          | -b : visa programmets basnamn                                    
+      --pid                  | -p : visa PID                                                    
+      --tid                  | -H : visa TID (tråd-ID)                                         
+      --no-tty-err           | -E : omdirigering av stderr till loggfilen                       
+--debug-mode           | -D : aktivering av felsökningsläge                             
+      --debug                | -d : felsökning                                                 
+      --protocol             | -P : visa protokoll                                              
+      --k-fct                | -f : K: spårning av funktioner                                  
+      --k-ctx                | -c : K: spårning av kontexter                                   
+      --k-read               | -r : K: spårning av läsningar                                  
+      --k-write              | -w : K: spårning av skrivningar                                 
+      --k-tl                 | -t : K: spårning av typer/längder                              
+      --k-v                  | -v : K: spårning av värden                                     
+      --k-dump               | -D : K: trace-dump                                               
+      --mutex                | -m : spårning av mutex-operationer                              
+      --sql-req              | -S : visa SQL-förfrågningar                                    
+      --disp-insert          | -i : visa elementinsättningar                                   
+      --options              | -O : spårning av alternativtolkning                             
+      --opts-infos           | -I : visa alternativ för informationer                          
+      --opts-all             | -A : visa alla alternativ                                        
+      --opts-todo            | -T : visa ej implementerade alternativ                           
+      --begin-end            | -b : spårning av funktionsinträde och funktionsutträde        
+      --watch-mem            | -W : periodisk visning av minnesinformation                      
+      --mem                  | -M : visa minnesinformation                                      
+      --show-free            | -F : visa minnesfrigöringar                                     
+      --no-free              | -N : ingen minnesfrigöring                                      
+      --intl-chk             | -C : intern konsistenskontroll                                   
+      --info                 | -j : information                                                 
+      --sizes                | -s : visa elementstorlekar                                       
+      --links                | -l : generera markeringar för sidlänkar (tester)               
+--lex                  | -L : spårning av lexikala analysatorer                          
+      --AT                   | -s : hantering av källnamn                                      
+      --AJ                   | -S : hantering av servergrupper                                  
+      --BL                   | -C : hantering av konfigurationsfil                              
+      --AP                   | -c : färghantering                                              
+--yacc                 | -Y : spårning av parser                                         
+      --AT                   | -s : hantering av källnamn                                      
+      --AJ                   | -S : hantering av servergrupper                                  
+      --BL                   | -C : hantering av konfigurationsfil                              
+      --AP                   | -c : färghantering                                              
+--module               | -M users
+      --help                 |    : visa användning                                            
+      --all-elts             | -E : visa alla element                                           
+      --all-infos            | -I : visa all information                                        
+      --config               | -C : konfiguration                                               
+      --reference            | -R : referens (tillägg)                                         
+      --srvgroup             |    : servergrupp(er)                                             
+      --store                |    : lagra insamlad information i en databas                     
+      --no-disp              |    : ingen visningsgenerering                                    
+      --html-out             | -o : namn på HTML-utdatafil                                     
+      --title                |    : titel för resultatsida                                     
+      --label                |    : specificera ett namn associerat med en insamling            
+      --nice                 |    : nice-prioritetsvärde (0 till 19)                           
+      --delta                |    : visa numeriska delta                                        
+      --passwd               | -p : lösenord                                                   
+      --uid                  | -u : UID                                                         
+      --gid                  | -g : GID                                                         
+      --comment              | -c : kommentar                                                   
+      --directory            | -d : hemkatalog                                                  
+      --shell                | -s : kommandotolk                                                
+      --uniq                 |    : sök unika användare                                       
+            --name                 | -n : användarnamn                                               
+            --uid                  | -u : UID                                                         
+      --dupl                 |    : sök duplicerade användare                                 
+            --name                 | -n : användarnamn                                               
+            --uid                  | -u : UID                                                         
+      --U                    |    : kontroll av /etc/passwd                                     
+            --name                 | -n : användarnamn                                               
+            --passwd               | -p : krypterat användarlösenord                                
+            --uid                  | -u : UID                                                         
+            --gid                  | -g : GID                                                         
+            --comment              | -c : kommentar                                                   
+            --homedir              | -h : hemkatalog                                                  
+            --shell                | -s : skal                                                        
+--module              -M fs
+      --help                 |    : visa användning                                            
+      --all-elts             | -E : visa alla element                                           
+      --all-infos            | -I : visa all information                                        
+      --config               | -C : konfiguration                                               
+      --reference            | -R : referens (tillägg)                                         
+      --srvgroup             |    : servergrupp(er)                                             
+      --store                |    : lagra insamlad information i en databas                     
+      --no-disp              |    : ingen visningsgenerering                                    
+      --html-out             | -o : namn på HTML-utdatafil                                     
+      --title                |    : titel för resultatsida                                     
+      --label                |    : specificera ett namn associerat med en insamling            
+      --nice                 |    : nice-prioritetsvärde (0 till 19)                           
+      --base                 |    : snabbskanning                                               
+      --RE-accept            |    : välj basnamn som matchar regex                             
+      --RE-reject            |    : avvisa basnamn som matchar regex                            
+      --RE-full-accept       |    : välj fullständiga sökvägar som matchar regex            
+      --RE-full-reject       |    : avvisa fullständiga sökvägar som matchar regex           
+      --RE-icase             |    : ignorera gemener/versaler                                   
+      --RE-deflt-action      |    : välj standardåtgärd (accept / reject)                    
+      --digits-separator     | -3 : dela upp tal i grupper om 3 siffror                         
+      --no-implicit-display  |    : ingen implicit visning av information                       
+      --delta                |    : visa numeriska delta                                        
+      --filetype             | -t : filtyp                                                      
+      --dev                  | -D : dev                                                         
+      --ino                  | -i : inode                                                       
+      --mode                 | -m : mod                                                         
+      --attr                 | -A : attribut                                                    
+      --nlinks               | -l : nlink                                                       
+      --uid                  | -u : uid                                                         
+      --gid                  | -g : gid                                                         
+      --user                 | -U : ägarnamn                                                   
+      --group                | -G : ägargruppnamn                                              
+      --rdev                 |    : rdev                                                        
+      --size                 | -s : storlek                                                     
+      --blksize              |    : blockstorlek                                                
+      --blocks               |    : block                                                       
+      --at                   |    : åtkomsttid                                                 
+      --mt                   |    : ändringstid                                                
+      --ct                   |    : inode-ändringstid                                          
+      --chksum               | -k : kontrollsumma                                               
+      --BSD                  | -B : BSD-kontrollsumma                                           
+      --md5                  |    : MD5-kontrollsumma                                           
+      --sha256               | -S : SHA256-kontrollsumma                                        
+      --d-nb-f               |    : antal filer i katalogen                                     
+      --d-nb-d               |    : antal underkataloger i katalogen                            
+      --d-nb-F               |    : antal FIFO i katalogen                                      
+      --d-nb-c               |    : antal teckenenheters i katalogen                            
+      --d-nb-b               |    : antal blockenheters i katalogen                             
+      --d-nb-l               |    : antal symboliska länkar i katalogen                        
+      --d-nb-s               |    : antal sockets i katalogen                                   
+      --d-nb-U               |    : antal filer av okänd typ i katalogen                       
+      --d-nb-B               |    : antal datablock i katalogen                                 
+      --t-nb-f               |    : antal filer i filträdet                                    
+      --t-nb-d               |    : antal kataloger i filträdet                                
+      --t-nb-F               |    : antal FIFO i filträdet                                     
+      --t-nb-c               |    : antal teckenenheters i filträdet                           
+      --t-nb-b               |    : antal blockenheters i filträdet                            
+      --t-nb-l               |    : antal symboliska länkar i filträdet                       
+      --t-nb-s               |    : antal sockets i filträdet                                  
+      --t-nb-U               |    : antal filer av okänd typ i filträdet                      
+      --t-nb-B               |    : antal datablock i filträdet                                
+      --pathname             | -P : sökväg                                                    
+      --uniq                 |    : sök unika filer                                            
+            --basename             | -n : filens basename                                             
+            --relative-path        | -r : relativ sökväg                                            
+            --filetype             | -t : filtyp                                                      
+            --inode                | -i : inode-nummer                                                
+            --size                 | -s : filstorlek                                                  
+            --chksum               | -k : kontrollsumma                                               
+            --BSD                  | -B : BSD-kontrollsumma                                           
+            --md5                  | -M : MD5-kontrollsumma                                           
+            --sha256               | -S : SHA256-kontrollsumma                                        
+      --mono-src             |    : sök filer som finns på en enda källa                     
+            --basename             | -n : filens basename                                             
+            --relative-path        | -r : relativ sökväg                                            
+            --filetype             | -t : filtyp                                                      
+            --inode                | -i : inode-nummer                                                
+            --size                 | -s : filstorlek                                                  
+            --chksum               | -k : kontrollsumma                                               
+            --BSD                  | -B : BSD-kontrollsumma                                           
+            --md5                  | -M : MD5-kontrollsumma                                           
+            --sha256               | -S : SHA256-kontrollsumma                                        
+      --not-on-ref           |    : sök filer som saknas i referens(erna)                      
+            --basename             | -n : filens basename                                             
+            --relative-path        | -r : relativ sökväg                                            
+            --filetype             | -t : filtyp                                                      
+            --inode                | -i : inode-nummer                                                
+            --size                 | -s : filstorlek                                                  
+            --chksum               | -k : kontrollsumma                                               
+            --BSD                  | -B : BSD-kontrollsumma                                           
+            --md5                  | -M : MD5-kontrollsumma                                           
+            --sha256               | -S : SHA256-kontrollsumma                                        
+      --dupl                 |    : sök duplicerade filer                                      
+            --basename             | -n : filens basename                                             
+            --relative-path        | -r : relativ sökväg                                            
+            --filetype             | -t : filtyp                                                      
+            --hard-links           | -H : ta hänsyn till hårdlänkar                                
+            --inode                | -i : inode-nummer                                                
+            --size                 | -s : filstorlek                                                  
+            --chksum               | -k : kontrollsumma                                               
+            --BSD                  | -B : BSD-kontrollsumma                                           
+            --md5                  | -M : MD5-kontrollsumma                                           
+            --sha256               | -S : SHA256-kontrollsumma                                        
+      --locate               |    : filslutning                                                 
+            --basename             | -n : specificera databaskälla för optimerad insamling          
+            --relative-path        | -r : relativ sökväg                                            
+            --filetype             | -t : filtyp                                                      
+            --hard-links           | -H : ta hänsyn till hårdlänkar                                
+            --inode                | -i : inode-nummer                                                
+            --size                 | -s : filstorlek                                                  
+            --chksum               | -k : kontrollsumma                                               
+            --BSD                  | -B : BSD-kontrollsumma                                           
+            --md5                  | -M : MD5-kontrollsumma                                           
+            --sha256               | -S : SHA256-kontrollsumma                                        
+      --list                 |    : lista element                                               
+      --xdev                 |    : ingen kataloggenomgång vid filsystembyte                   
+      --no-dirsize           |    : ingen katalogstorlek                                        
+      --no-dir               |    : ingen katalogbehandling                                     
+      --depth                | -L : djupnivå                                                   
+      --reorg                |    : omorganisering mot referensfilträdet                       
+      --debug                | -D : hantering av felsökningsläge                              
+            --agent                | -a : aktivering av agentfelsökning                              
+--module              -M rpm
+      --help                 |    : visa användning                                            
+      --all-elts             | -E : visa alla element                                           
+      --all-infos            | -I : visa all information                                        
+      --config               | -C : konfiguration                                               
+      --reference            | -R : referens (tillägg)                                         
+      --srvgroup             |    : servergrupp(er)                                             
+      --store                |    : lagra insamlad information i en databas                     
+      --no-disp              |    : ingen visningsgenerering                                    
+      --html-out             | -o : namn på HTML-utdatafil                                     
+      --title                |    : titel för resultatsida                                     
+      --label                |    : specificera ett namn associerat med en insamling            
+      --nice                 |    : nice-prioritetsvärde (0 till 19)                           
+      --delta                |    : visa numeriska delta                                        
+      --version              | -v : RPM-version                                                 
+      --release              | -r : RPM-release                                                 
+      --inst-date            |    : installationsdatum                                          
+      --rpmgroup             | -g : RPM-grupp                                                   
+      --rpmsize              | -s : RPM-storlek                                                 
+      --vendor               |    : leverantör                                                 
+      --bd                   |    : byggdatum                                                   
+      --bh                   |    : RPM-byggserver                                              
+      --src                  |    : käll-RPM                                                   
+      --lic                  |    : licens                                                      
+      --sig                  |    : signatur                                                    
+      --summary              |    : sammanfattning                                              
+      --desc                 |    : beskrivning                                                 
+      --arch                 |    : arkitektur                                                  
+      --dirnames             |    : katalognamn                                                 
+      --filemtimes           |    : filers ändringstider                                       
+      --fileusername         |    : filernas ägare                                             
+      --filegroupname        |    : filernas ägargrupp                                         
+      --rpmversion           |    : RPM-version använd för att bygga paketet                  
+      --distribution         |    : distribution                                                
+      --optflags             |    : bygginställningar                                          
+      --packager             |    : paketskapare                                                
+      --sha1header           |    : SHA1-huvud                                                  
+      --sigMD5               |    : MD5-signatur                                                
+      --!R                   |    : referens (ersättning)                                      
+      --#L                   |    : trace lex                                                   
+      --#Y                   |    : trace yacc                                                  
+      --uniq                 |    : sök unika RPM                                              
+      --dupl                 |    : sök unika RPM                                              
+--module              -M sysconf
+      --help                 |    : visa användning                                            
+      --all-elts             | -E : visa alla element                                           
+      --all-infos            | -I : visa all information                                        
+      --config               | -C : konfiguration                                               
+      --reference            | -R : referens (tillägg)                                         
+      --srvgroup             |    : servergrupp(er)                                             
+      --store                |    : lagra insamlad information i en databas                     
+      --no-disp              |    : ingen visningsgenerering                                    
+      --html-out             | -o : namn på HTML-utdatafil                                     
+      --title                |    : titel för resultatsida                                     
+      --label                |    : specificera ett namn associerat med en insamling            
+      --nice                 |    : nice-prioritetsvärde (0 till 19)                           
+      --service              | -s : tjänst                                                     
+      --run-0                | -0 : körningsnivå 0                                            
+      --run-1                | -1 : körningsnivå 1                                            
+      --run-2                | -2 : körningsnivå 2                                            
+      --run-3                | -3 : körningsnivå 3                                            
+      --run-4                | -4 : körningsnivå 4                                            
+      --run-5                | -5 : körningsnivå 5                                            
+      --run-6                | -6 : körningsnivå 6                                            
+--module              -M dpkg
+      --help                 |    : visa användning                                            
+      --all-elts             | -E : visa alla element                                           
+      --all-infos            | -I : visa all information                                        
+      --config               | -C : konfiguration                                               
+      --reference            | -R : referens (tillägg)                                         
+      --srvgroup             |    : servergrupp(er)                                             
+      --store                |    : lagra insamlad information i en databas                     
+      --no-disp              |    : ingen visningsgenerering                                    
+      --html-out             | -o : namn på HTML-utdatafil                                     
+      --title                |    : titel för resultatsida                                     
+      --label                |    : specificera ett namn associerat med en insamling            
+      --nice                 |    : nice-prioritetsvärde (0 till 19)                           
+      --package              | -p : paket                                                       
+      --version              | -v : version                                                     
+      --descr                | -d : beskrivning                                                 
+      --debug                | -D : agentfelsökning                                            
+            --agent                | -a : agentfelsökning                                            
+--module              -M sccs
+      --help                 |    : visa användning                                            
+      --all-elts             | -E : visa alla element                                           
+      --all-infos            | -I : visa all information                                        
+      --config               | -C : konfiguration                                               
+      --reference            | -R : referens (tillägg)                                         
+      --srvgroup             |    : servergrupp(er)                                             
+      --store                |    : lagra insamlad information i en databas                     
+      --no-disp              |    : ingen visningsgenerering                                    
+      --html-out             | -o : namn på HTML-utdatafil                                     
+      --title                |    : titel för resultatsida                                     
+      --label                |    : specificera ett namn associerat med en insamling            
+      --nice                 |    : nice-prioritetsvärde (0 till 19)                           
+      --list                 |    : lista element                                               
+      --xdev                 | -x : ingen kataloggenomgång vid filsystembyte                   
+      --level                |    : SCCS-arkiv (singular)                                       
+      --size                 | -s : delta-storlek                                               
+      --md5                  | -M : MD5-kontrollsumma                                           
+      --sha256               | -2 : SHA256-kontrollsumma                                        
+      --archive              | -a : SCCS-arkiv (singular)                                       
+      --last-version         | -l : senaste version                                             
+      --author               | -A : författare                                                 
+      --date                 | -d : datum för skapande av delta                                
+      --time                 | -t : tid för skapande av delta                                  
+      --module-type          | -m : modultyp                                                    
+      --var-Q                | -Q : variabel Q                                                  
+      --comment              | -c : kommentar                                                   
+      --year                 |    : år för skapande av delta                                  
+      --month                |    : månad för skapande av delta                               
+      --day                  |    : dag för skapande av delta                                  
+      --debug-agent          | -D : felsökning av agenten                                      
+            --lex                  | -L : trace lex                                                   
+            --yacc                 | -Y : trace yacc                                                  
+            --debug                | -d : val av felsökningsnivå                                    
+            --begin-end            | -b : spårning av funktionsinträde och funktionsutträde        
+            --sent-info            | -i : spårning av skickad information                            
+            --processes            | -p : spårning av exekverade processer                           

@@ -1,0 +1,345 @@
+Programme principal :
+-M main
+--help                 | -u : Nutzungsanzeige                                             
+--version              | -V : Versionsanzeige                                             
+--verbose              | -v : erhoehte Ausfuehrlichkeit                                   
+--no-log               | -x : keine Protokollgenerierung                                  
+--lang                 | -_ : Sprache                                                     
+--config               | -C : Konfiguration                                               
+--list-conf            | -c : Anzeige von Konfigurationen                                 
+--list-groups          | -G : Anzeige definierter Gruppen                                 
+--list-group           | -g : Anzeige von Servern in einer Gruppe                         
+--db-host              | -h : Server, der die Datenbank hostet                            
+--db-name              | -n : Datenbankname                                               
+--db-list              | -d : Anzeige von Datenbanktabellen                               
+      --collects             | -C : Anzeige der Sammlungsliste                                  
+      --TS                   | -T : Liste der Zeitstempel                                       
+      --servers              | -S : Serverliste                                                 
+      --users                | -U : Benutzerliste                                               
+      --pathnames            | -P : Liste der Pfadnamen                                         
+      --RPM                  | -R : RPM-Liste                                                   
+      --dpkg                 | -D : Liste der Debian-Pakete                                     
+      --sccs                 | -s : Liste der SCCS-Archive                                      
+--log-config           | -l : Konfiguration der Protokollierung                           
+      --hires-ts             | -T : hochaufloesende Zeitanzeige                                 
+      --ts                   | -t : Zeitanzeige                                                 
+      --delta-t              | -d : Anzeige der Dauer (Delta T)                                 
+      --duration             | -D : Anzeige der Dauer                                           
+      --where                | -w : Anzeige der Herkunft einer Nachricht                        
+      --origin-full          | -f : Anzeige des vollstaendigen Pfadnamens des Programms         
+      --origin-base          | -b : Anzeige des Kurznamens des Programms                        
+      --pid                  | -p : PID-Anzeige                                                 
+      --tid                  | -H : Anzeige der TID (Thread-ID)                                 
+      --no-tty-err           | -E : stderr-Umleitung zur Protokolldatei                         
+--debug-mode           | -D : Aktivierung des Debug-Modus                                 
+      --debug                | -d : debuggen                                                    
+      --protocol             | -P : Protokollanzeige                                            
+      --k-fct                | -f : K: Trace von Funktionen                                     
+      --k-ctx                | -c : K: Trace von Zusammenhaengen                                
+      --k-read               | -r : K: Trace der Leseoperationen                                
+      --k-write              | -w : K: Trace der Schreiboperationen                             
+      --k-tl                 | -t : K: Trace der Typen/Laengen                                  
+      --k-v                  | -v : K: Trace der Werte                                          
+      --k-dump               | -D : K: Trace-Dump                                               
+      --mutex                | -m : Mutex-Operationen verfolgen                                 
+      --sql-req              | -S : Anzeigen von SQL-Abfragen                                   
+      --disp-insert          | -i : Elementeinfuegungen anzeigen                                
+      --options              | -O : Optionsdecodierung verfolgen                                
+      --opts-infos           | -I : Optionen zu Informationen anzeigen                          
+      --opts-all             | -A : alle Optionen anzeigen                                      
+      --opts-todo            | -T : nicht implementierte Optionen anzeigen                      
+      --begin-end            | -b : Protokollierung von Funktionseintritten und -austritten     
+      --watch-mem            | -W : periodische Anzeige von Speicherinformationen               
+      --mem                  | -M : Speicherinformationen anzeigen                              
+      --show-free            | -F : Speicherfreigaben anzeigen                                  
+      --no-free              | -N : keine Speicherfreigabe                                      
+      --intl-chk             | -C : interne Konsistenzpruefung                                  
+      --info                 | -j : Information                                                 
+      --sizes                | -s : Elementgroessen anzeigen                                    
+      --links                | -l : Generierung von Markern zur Seitenverkettung (Tests)        
+--lex                  | -L : Trace von lexikalischen Analysatoren                        
+      --AT                   | -s : Verwaltung der Quellnamen                                   
+      --AJ                   | -S : Servergruppen-Verwaltung                                    
+      --BL                   | -C : Konfigurationsdatei-Verwaltung                              
+      --AP                   | -c : Farbmanagement                                              
+--yacc                 | -Y : Trace von Grammatikanalysatoren                             
+      --AT                   | -s : Verwaltung der Quellnamen                                   
+      --AJ                   | -S : Servergruppen-Verwaltung                                    
+      --BL                   | -C : Konfigurationsdatei-Verwaltung                              
+      --AP                   | -c : Farbverwaltung                                              
+--module               | -M users
+      --help                 |    : Nutzungsanzeige                                             
+      --all-elts             | -E : alle Elemente anzeigen                                      
+      --all-infos            | -I : alle Informationen anzeigen                                 
+      --config               | -C : Konfiguration                                               
+      --reference            | -R : Referenz (Ergaenzung)                                       
+      --srvgroup             |    : Servergruppe(n)                                             
+      --store                |    : Speicherung der gesammelten Informationen in einer Datenbank
+      --no-disp              |    : keine Anzeigegenerierung                                    
+      --html-out             | -o : Name der Ausgabe-HTML-Datei                                 
+      --title                |    : Titel der Ergebnisseiten                                    
+      --label                |    : Namensspezifikation fuer eine Sammlung                      
+      --nice                 |    : Nice-Prioritätswert (0 bis 19)                             
+      --delta                |    : numerische Deltas anzeigen                                  
+      --passwd               | -p : Passwort                                                    
+      --uid                  | -u : UID                                                         
+      --gid                  | -g : GID                                                         
+      --comment              | -c : Kommentar                                                   
+      --directory            | -d : Home-Verzeichnis                                            
+      --shell                | -s : Kommando-Interpreter                                        
+      --uniq                 |    : eindeutige Benutzer suchen                                  
+            --name                 | -n : Benutzername                                                
+            --uid                  | -u : UID                                                         
+      --dupl                 |    : doppelte Benutzer suchen                                    
+            --name                 | -n : Benutzername                                                
+            --uid                  | -u : UID                                                         
+      --U                    |    : Prüfung von /etc/passwd                                    
+            --name                 | -n : Benutzername                                                
+            --passwd               | -p : verschlüsseltes Benutzerpasswort                           
+            --uid                  | -u : UID                                                         
+            --gid                  | -g : GID                                                         
+            --comment              | -c : Kommentar                                                   
+            --homedir              | -h : Home-Verzeichnis                                            
+            --shell                | -s : Shell                                                       
+--module              -M fs
+      --help                 |    : Nutzungsanzeige                                             
+      --all-elts             | -E : alle Elemente anzeigen                                      
+      --all-infos            | -I : alle Informationen anzeigen                                 
+      --config               | -C : Konfiguration                                               
+      --reference            | -R : Referenz (Ergaenzung)                                       
+      --srvgroup             |    : Servergruppe(n)                                             
+      --store                |    : Speicherung der gesammelten Informationen in einer Datenbank
+      --no-disp              |    : keine Anzeigegenerierung                                    
+      --html-out             | -o : Name der Ausgabe-HTML-Datei                                 
+      --title                |    : Titel der Ergebnisseiten                                    
+      --label                |    : Namensspezifikation fuer eine Sammlung                      
+      --nice                 |    : Nice-Prioritätswert (0 bis 19)                             
+      --base                 |    : Schnell-Scan                                                
+      --RE-accept            |    : Basenames auswählen, die der Regex entsprechen             
+      --RE-reject            |    : Basenames abweisen, die der Regex entsprechen               
+      --RE-full-accept       |    : vollständige Pfadnamen auswählen, die der Regex entsprechen
+      --RE-full-reject       |    : vollständige Pfadnamen abweisen, die der Regex entsprechen 
+      --RE-icase             |    : Groß-/Kleinschreibung ignorieren                           
+      --RE-deflt-action      |    : Standardaktion auswählen (accept / reject)                 
+      --digits-separator     | -3 : Zahlen in 3er-Gruppen trennen                               
+      --no-implicit-display  |    : keine implizite Informationsanzeige                         
+      --delta                |    : numerische Deltas anzeigen                                  
+      --filetype             | -t : Dateityp                                                    
+      --dev                  | -D : dev                                                         
+      --ino                  | -i : Inode                                                       
+      --mode                 | -m : Modus                                                       
+      --attr                 | -A : Attribute                                                   
+      --nlinks               | -l : nlink                                                       
+      --uid                  | -u : uid                                                         
+      --gid                  | -g : gid                                                         
+      --user                 | -U : Eigentümername                                             
+      --group                | -G : Name der Eigentümergruppe                                  
+      --rdev                 |    : rdev                                                        
+      --size                 | -s : Größe                                                     
+      --blksize              |    : Blockgröße                                                
+      --blocks               |    : Blöcke                                                     
+      --at                   |    : Zugriffszeit                                                
+      --mt                   |    : Änderungszeit                                              
+      --ct                   |    : Inode-Änderungszeit                                        
+      --chksum               | -k : Prüfsumme                                                  
+      --BSD                  | -B : BSD-Prüfsumme                                              
+      --md5                  |    : MD5-Prüfsumme                                              
+      --sha256               | -S : SHA256-Prüfsumme                                           
+      --d-nb-f               |    : Anzahl der Dateien im Verzeichnis                           
+      --d-nb-d               |    : Anzahl der Unterverzeichnisse im Verzeichnis                
+      --d-nb-F               |    : Anzahl der FIFOs im Verzeichnis                             
+      --d-nb-c               |    : Anzahl der Zeichengeräte im Verzeichnis                    
+      --d-nb-b               |    : Anzahl der Blockgeräte im Verzeichnis                      
+      --d-nb-l               |    : Anzahl der symbolischen Links im Verzeichnis                
+      --d-nb-s               |    : Anzahl der Sockets im Verzeichnis                           
+      --d-nb-U               |    : Anzahl der Dateien unbekannten Typs im Verzeichnis          
+      --d-nb-B               |    : Anzahl der Datenblöcke im Verzeichnis                      
+      --t-nb-f               |    : Anzahl der Dateien im Verzeichnisbaum                       
+      --t-nb-d               |    : Anzahl der Verzeichnisse im Verzeichnisbaum                 
+      --t-nb-F               |    : Anzahl der FIFOs im Verzeichnisbaum                         
+      --t-nb-c               |    : Anzahl der Zeichengeräte im Verzeichnisbaum                
+      --t-nb-b               |    : Anzahl der Blockgeräte im Verzeichnisbaum                  
+      --t-nb-l               |    : Anzahl der symbolischen Links im Verzeichnisbaum            
+      --t-nb-s               |    : Anzahl der Sockets im Verzeichnisbaum                       
+      --t-nb-U               |    : Anzahl der Dateien unbekannten Typs im Verzeichnisbaum      
+      --t-nb-B               |    : Anzahl der Datenblöcke im Verzeichnisbaum                  
+      --pathname             | -P : Pfadname                                                    
+      --uniq                 |    : eindeutige Dateien suchen                                   
+            --basename             | -n : Datei-Basename                                              
+            --relative-path        | -r : relativer Pfadname                                          
+            --filetype             | -t : Dateityp                                                    
+            --inode                | -i : Inode-Nummer                                                
+            --size                 | -s : Dateigröße                                                
+            --chksum               | -k : Prüfsumme                                                  
+            --BSD                  | -B : BSD-Prüfsumme                                              
+            --md5                  | -M : MD5-Prüfsumme                                              
+            --sha256               | -S : SHA256-Prüfsumme                                           
+      --mono-src             |    : Dateien suchen, die nur auf einer Quelle vorhanden sind     
+            --basename             | -n : Datei-Basename                                              
+            --relative-path        | -r : relativer Pfadname                                          
+            --filetype             | -t : Dateityp                                                    
+            --inode                | -i : Inode-Nummer                                                
+            --size                 | -s : Dateigröße                                                
+            --chksum               | -k : Prüfsumme                                                  
+            --BSD                  | -B : BSD-Prüfsumme                                              
+            --md5                  | -M : MD5-Prüfsumme                                              
+            --sha256               | -S : SHA256-Prüfsumme                                           
+      --not-on-ref           |    : Dateien suchen, die in keinem Referenzbaum vorhanden sind   
+            --basename             | -n : Datei-Basename                                              
+            --relative-path        | -r : relativer Pfadname                                          
+            --filetype             | -t : Dateityp                                                    
+            --inode                | -i : Inode-Nummer                                                
+            --size                 | -s : Dateigröße                                                
+            --chksum               | -k : Prüfsumme                                                  
+            --BSD                  | -B : BSD-Prüfsumme                                              
+            --md5                  | -M : MD5-Prüfsumme                                              
+            --sha256               | -S : SHA256-Prüfsumme                                           
+      --dupl                 |    : doppelte Dateien suchen                                     
+            --basename             | -n : Datei-Basename                                              
+            --relative-path        | -r : relativer Pfadname                                          
+            --filetype             | -t : Dateityp                                                    
+            --hard-links           | -H : Berücksichtigung von Hardlinks                             
+            --inode                | -i : Inode-Nummer                                                
+            --size                 | -s : Dateigröße                                                
+            --chksum               | -k : Prüfsumme                                                  
+            --BSD                  | -B : BSD-Prüfsumme                                              
+            --md5                  | -M : MD5-Prüfsumme                                              
+            --sha256               | -S : SHA256-Prüfsumme                                           
+      --locate               |    : Dateisuche                                                  
+            --basename             | -n : Datenbankquelle für optimierte Sammlung angeben            
+            --relative-path        | -r : relativer Pfadname                                          
+            --filetype             | -t : Dateityp                                                    
+            --hard-links           | -H : Berücksichtigung von Hardlinks                             
+            --inode                | -i : Inode-Nummer                                                
+            --size                 | -s : Dateigröße                                                
+            --chksum               | -k : Prüfsumme                                                  
+            --BSD                  | -B : BSD-Prüfsumme                                              
+            --md5                  | -M : MD5-Prüfsumme                                              
+            --sha256               | -S : SHA256-Prüfsumme                                           
+      --list                 |    : Elemente auflisten                                          
+      --xdev                 |    : keine Verzeichnisdurchsuchung bei Dateisystemwechsel        
+      --no-dirsize           |    : keine Verzeichnisgröße                                    
+      --no-dir               |    : keine Verzeichnisverarbeitung                               
+      --depth                | -L : Tiefenebene                                                 
+      --reorg                |    : Neuordnung gegenüber dem Referenzbaum                      
+      --debug                | -D : Debug-Modus-Verwaltung                                      
+            --agent                | -a : Agent-Debug aktivieren                                      
+--module              -M rpm
+      --help                 |    : Nutzungsanzeige                                             
+      --all-elts             | -E : alle Elemente anzeigen                                      
+      --all-infos            | -I : alle Informationen anzeigen                                 
+      --config               | -C : Konfiguration                                               
+      --reference            | -R : Referenz (Ergaenzung)                                       
+      --srvgroup             |    : Servergruppe(n)                                             
+      --store                |    : Speicherung der gesammelten Informationen in einer Datenbank
+      --no-disp              |    : keine Anzeigegenerierung                                    
+      --html-out             | -o : Name der Ausgabe-HTML-Datei                                 
+      --title                |    : Titel der Ergebnisseiten                                    
+      --label                |    : Namensspezifikation fuer eine Sammlung                      
+      --nice                 |    : Nice-Prioritätswert (0 bis 19)                             
+      --delta                |    : numerische Deltas anzeigen                                  
+      --version              | -v : RPM-Version                                                 
+      --release              | -r : RPM-Release                                                 
+      --inst-date            |    : Installationsdatum                                          
+      --rpmgroup             | -g : RPM-Gruppe                                                  
+      --rpmsize              | -s : RPM-Größe                                                 
+      --vendor               |    : Hersteller                                                  
+      --bd                   |    : Erstellungsdatum                                            
+      --bh                   |    : RPM-Build-Server                                            
+      --src                  |    : Quell-RPM                                                   
+      --lic                  |    : Lizenz                                                      
+      --sig                  |    : Signatur                                                    
+      --summary              |    : Zusammenfassung                                             
+      --desc                 |    : Beschreibung                                                
+      --arch                 |    : Architektur                                                 
+      --dirnames             |    : Verzeichnisnamen                                            
+      --filemtimes           |    : Datei-Änderungsdaten                                       
+      --fileusername         |    : Eigentümer der Dateien                                     
+      --filegroupname        |    : Eigentümergruppe der Dateien                               
+      --rpmversion           |    : RPM-Version zum Erstellen des Pakets                        
+      --distribution         |    : Distribution                                                
+      --optflags             |    : Build-Optionen                                              
+      --packager             |    : Paketersteller                                              
+      --sha1header           |    : SHA1-Header                                                 
+      --sigMD5               |    : MD5-Signatur                                                
+      --!R                   |    : Referenz (Ersetzung)                                        
+      --#L                   |    : Trace-Lex                                                   
+      --#Y                   |    : Trace-Yacc                                                  
+      --uniq                 |    : eindeutige RPM suchen                                       
+      --dupl                 |    : eindeutige RPM suchen                                       
+--module              -M sysconf
+      --help                 |    : Nutzungsanzeige                                             
+      --all-elts             | -E : alle Elemente anzeigen                                      
+      --all-infos            | -I : alle Informationen anzeigen                                 
+      --config               | -C : Konfiguration                                               
+      --reference            | -R : Referenz (Ergaenzung)                                       
+      --srvgroup             |    : Servergruppe(n)                                             
+      --store                |    : Speicherung der gesammelten Informationen in einer Datenbank
+      --no-disp              |    : keine Anzeigegenerierung                                    
+      --html-out             | -o : Name der Ausgabe-HTML-Datei                                 
+      --title                |    : Titel der Ergebnisseiten                                    
+      --label                |    : Namensspezifikation fuer eine Sammlung                      
+      --nice                 |    : Nice-Prioritätswert (0 bis 19)                             
+      --service              | -s : Dienst                                                      
+      --run-0                | -0 : Runlevel 0                                                  
+      --run-1                | -1 : Runlevel 1                                                  
+      --run-2                | -2 : Runlevel 2                                                  
+      --run-3                | -3 : Runlevel 3                                                  
+      --run-4                | -4 : Runlevel 4                                                  
+      --run-5                | -5 : Runlevel 5                                                  
+      --run-6                | -6 : Runlevel 6                                                  
+--module              -M dpkg
+      --help                 |    : Nutzungsanzeige                                             
+      --all-elts             | -E : alle Elemente anzeigen                                      
+      --all-infos            | -I : alle Informationen anzeigen                                 
+      --config               | -C : Konfiguration                                               
+      --reference            | -R : Referenz (Ergaenzung)                                       
+      --srvgroup             |    : Servergruppe(n)                                             
+      --store                |    : Speicherung der gesammelten Informationen in einer Datenbank
+      --no-disp              |    : keine Anzeigegenerierung                                    
+      --html-out             | -o : Name der Ausgabe-HTML-Datei                                 
+      --title                |    : Titel der Ergebnisseiten                                    
+      --label                |    : Namensspezifikation fuer eine Sammlung                      
+      --nice                 |    : Nice-Prioritätswert (0 bis 19)                             
+      --package              | -p : Pakete                                                      
+      --version              | -v : Version                                                     
+      --descr                | -d : Beschreibung                                                
+      --debug                | -D : Agent-Debug                                                 
+            --agent                | -a : Agent-Debug                                                 
+--module              -M sccs
+      --help                 |    : Nutzungsanzeige                                             
+      --all-elts             | -E : alle Elemente anzeigen                                      
+      --all-infos            | -I : alle Informationen anzeigen                                 
+      --config               | -C : Konfiguration                                               
+      --reference            | -R : Referenz (Ergaenzung)                                       
+      --srvgroup             |    : Servergruppe(n)                                             
+      --store                |    : Speicherung der gesammelten Informationen in einer Datenbank
+      --no-disp              |    : keine Anzeigegenerierung                                    
+      --html-out             | -o : Name der Ausgabe-HTML-Datei                                 
+      --title                |    : Titel der Ergebnisseiten                                    
+      --label                |    : Namensspezifikation fuer eine Sammlung                      
+      --nice                 |    : Nice-Prioritätswert (0 bis 19)                             
+      --list                 |    : Elemente auflisten                                          
+      --xdev                 | -x : keine Verzeichnisdurchsuchung bei Dateisystemwechsel        
+      --level                |    : SCCS-Archiv                                                 
+      --size                 | -s : Delta-Größe                                               
+      --md5                  | -M : MD5-Prüfsumme                                              
+      --sha256               | -2 : SHA256-Prüfsumme                                           
+      --archive              | -a : SCCS-Archiv                                                 
+      --last-version         | -l : letzte Version                                              
+      --author               | -A : Autor                                                       
+      --date                 | -d : Erstellungsdatum des Deltas                                 
+      --time                 | -t : Erstellungszeit des Deltas                                  
+      --module-type          | -m : Modultyp                                                    
+      --var-Q                | -Q : Variable Q                                                  
+      --comment              | -c : Kommentar                                                   
+      --year                 |    : Erstellungsjahr des Deltas                                  
+      --month                |    : Erstellungsmonat des Deltas                                 
+      --day                  |    : Erstellungstag des Deltas                                   
+      --debug-agent          | -D : Debugging des Agenten                                       
+            --lex                  | -L : Trace-Lex                                                   
+            --yacc                 | -Y : Trace-Yacc                                                  
+            --debug                | -d : Auswahl der Debug-Stufe                                     
+            --begin-end            | -b : Protokollierung von Funktionseintritten und -austritten     
+            --sent-info            | -i : Protokollierung der gesendeten Informationen                
+            --processes            | -p : Protokollierung der ausgeführten Prozesse                  
